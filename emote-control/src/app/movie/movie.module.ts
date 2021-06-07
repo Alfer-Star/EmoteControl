@@ -1,3 +1,4 @@
+import { SubtitlesComponent } from './subtitles/subtitles.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { MoviePageRoutingModule } from './movie-routing.module';
 
 import { MoviePage } from './movie.page';
+import { SubtitleService } from '../services/subtitle.service';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { MoviePage } from './movie.page';
     IonicModule,
     MoviePageRoutingModule
   ],
-  declarations: [MoviePage]
+  declarations: [MoviePage, SubtitlesComponent],
+  providers: [SubtitleService]
 })
 export class MoviePageModule {}

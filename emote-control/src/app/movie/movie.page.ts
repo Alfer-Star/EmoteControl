@@ -1,5 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { SubtitleService } from '../services/subtitle.service';
 
 /**
  * From here
@@ -20,15 +26,31 @@ export class MoviePage implements OnInit, AfterViewInit {
 
   videoPath = './assets/movies/sample-mp4-file.mp4';
 
-  constructor() {}
+  currentSub: string;
+  subActive = false;
 
-  ngOnInit() {}
+  constructor(private subtitleService: SubtitleService) {}
+
+  ngOnInit() {
+    const observer = this.subtitleService.getSubObserver();
+    observer.subscribe((sub) => {
+      if (this.subActive) {
+        this.currentSub = sub;
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
-    this.myVideo.nativeElement.addEventListener('pause', ()=> (this.videoPaused=!this.videoPaused));
-    this.myVideo.nativeElement.addEventListener('play', ()=> (this.videoPaused=!this.videoPaused));
-    this.myVideo.nativeElement.addEventListener('volumechange', ()=> {});
-    this.myVideo.nativeElement.addEventListener('timeupdate', ()=> {});
+    this.myVideo.nativeElement.addEventListener(
+      'pause',
+      () => (this.videoPaused = !this.videoPaused)
+    );
+    this.myVideo.nativeElement.addEventListener(
+      'play',
+      () => (this.videoPaused = !this.videoPaused)
+    );
+    this.myVideo.nativeElement.addEventListener('volumechange', () => {});
+    this.myVideo.nativeElement.addEventListener('timeupdate', () => {});
   }
 
   playVideo() {
@@ -40,5 +62,15 @@ export class MoviePage implements OnInit, AfterViewInit {
 
   muteVideo() {
     this.myVideo.nativeElement.muted = !this.myVideo.nativeElement.muted;
+  }
+
+  showSubtitles() {
+    this.currentSub = 'Subtitles';
+    // Logic setting Subtitles
+    // See also Listener timeupdate
+  }
+
+  removeSubtitles() {
+    this.currentSub = undefined;
   }
 }

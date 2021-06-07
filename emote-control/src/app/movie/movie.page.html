@@ -8,6 +8,9 @@
   <ion-grid>
     <ion-row>
       <ion-col class="video-col ion-align-self-center">
+        <div>
+          <app-subtitles [currentSub]="currentSub"></app-subtitles>
+        </div>
         <video controls webkit-playsinline class="fill-width" #video>
           <source src="{{videoPath}}" type="video/webm" />
           <source src="{{videoPath}}" type="video/mp4" />
@@ -19,7 +22,7 @@
         <ion-grid>
           <ion-row>
             <ion-col class="ion-align-self-center">
-              <h2>Mechanical Turk</h2>
+              <h2>Prototyp Adviser</h2>
               <p>User do not see this.</p>
             </ion-col>
           </ion-row>
@@ -42,6 +45,16 @@
           <ion-row>
             <ion-col class="ion-align-self-center">
               <ion-button (click)="muteVideo()">Mute</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <ion-button (click)="showSubtitles()">Show Subtitles</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <ion-button (click)="removeSubtitles()">Remove Subtitles</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
