@@ -24,7 +24,7 @@ export class MoviePage implements OnInit, AfterViewInit {
 
   videoPaused = false;
 
-  videoPath = './assets/movies/sample-mp4-file.mp4';
+  videoPath = './assets/movies/lights-out-whos-there-film-challenge-2013.mp4';
 
   currentSub: string;
   subActive = false;
