@@ -8,18 +8,30 @@
   <ion-grid>
     <ion-row>
       <ion-col class="video-col ion-align-self-center">
-        <video controls webkit-playsinline class="fill-width" #video >
+        <video controls webkit-playsinline class="fill-width" #video>
           <source src="{{videoPath}}" type="video/webm" />
-          <source src="{{videoPath}}" type="video/mp4">
-          <source src="{{videoPath}}" type="video/ogg">
+          <source src="{{videoPath}}" type="video/mp4" />
+          <source src="{{videoPath}}" type="video/ogg" />
           Your browser does not support HTML5 video.
-     </video>
+        </video>
       </ion-col>
       <ion-col size="2" class="button-col ion-align-self-center">
         <ion-grid>
           <ion-row>
             <ion-col class="ion-align-self-center">
+              <h2>Mechanical Turk</h2>
+              <p>User do not see this.</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
               <ion-button (click)="playVideo()">Play</ion-button>
+              <!--<ng-container *ngIf="videoPaused; else elseTemplate">
+                <ion-button (click)="stopVideo()">Pause</ion-button>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <ion-button (click)="playVideo()">Play</ion-button>
+              </ng-template> -->
             </ion-col>
           </ion-row>
           <ion-row>
@@ -29,7 +41,7 @@
           </ion-row>
           <ion-row>
             <ion-col class="ion-align-self-center">
-              <ion-button>Mute</ion-button>
+              <ion-button (click)="muteVideo()">Mute</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
