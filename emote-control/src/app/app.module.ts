@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [CommonModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
