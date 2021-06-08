@@ -8,7 +8,7 @@
   <ion-grid>
     <ion-row>
       <ion-col class="video-col ion-align-self-center">
-        <video controls webkit-playsinline class="fill-width" #video>
+        <video [hidden]="videoIsBlanked" controls webkit-playsinline class="fill-width" #video>
           <source src="{{videoPath}}" type="video/webm" />
           <source src="{{videoPath}}" type="video/mp4" />
           <source src="{{videoPath}}" type="video/ogg" />

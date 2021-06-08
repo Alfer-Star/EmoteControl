@@ -5,10 +5,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SubtitleService {
-  private subs: Subtitle[];
+  protected subs: Subtitle[];
 
-  private lastTimeIndex: number;
-  private lastTime: number;
+  protected lastTimeIndex: number;
+  protected lastTime: number;
 
   constructor() {
     this.initSubs();
@@ -43,11 +43,11 @@ export class SubtitleService {
       : 'No Sub';
   }
 
-  checkSub(sub: Subtitle, time: number) {
+  protected checkSub(sub: Subtitle, time: number) {
     return sub.begin <= time && sub.end >= time;
   }
 
-  initSubs() {
+  protected initSubs() {
     this.subs = new Array<Subtitle>();
 
     this.subs.push({ begin: 0, end: 10, value: '0-10000' });
@@ -89,7 +89,7 @@ export class SubtitleService {
   }
 }
 
-interface Subtitle {
+export interface Subtitle {
   begin: number;
   end: number;
   value: string;
