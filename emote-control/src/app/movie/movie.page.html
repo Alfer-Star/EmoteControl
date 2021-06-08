@@ -8,22 +8,55 @@
   <ion-grid>
     <ion-row>
       <ion-col class="video-col ion-align-self-center">
-        <video [hidden]="videoIsBlanked" controls webkit-playsinline class="fill-width" #video>
+        <video
+          [hidden]="videoIsBlanked"
+          controls
+          webkit-playsinline
+          class="fill-width"
+          #video
+        >
           <source src="{{videoPath}}" type="video/webm" />
           <source src="{{videoPath}}" type="video/mp4" />
           <source src="{{videoPath}}" type="video/ogg" />
           Your browser does not support HTML5 video.
         </video>
+        <!-- Beginn Blank Smiley -->
+        <div [hidden]="!videoIsBlanked">
+          <h2>Video ausgeblendet</h2>
+          <img width="720" src="./assets/icon/fa0cb986-69a4-4d37-8c03-7228b9652416.svg" />
+          <a href="https://dryicons.com/icon/flat-dead-emoticon-icon-8922">
+            Icon by Dryicons
+          </a>
+          <ion-buttons>
+            <ion-button (click)="blankVideo()">
+              <ion-icon name="play"></ion-icon>
+            </ion-button>
+            <ion-button (click)="stopVideo()">
+              <ion-icon name="Pause"> </ion-icon>
+            </ion-button>
+            <ion-button [disabled]="true">
+              <span>Volume: </span> <span>{{volume}}</span>
+            </ion-button>
+            <ion-button (click)="changeVolume(-1)">
+              <ion-icon name="remove"></ion-icon>
+            </ion-button>
+            <ion-button (click)="changeVolume(1)">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
         <p class="subtitles">{{currentSub}}</p>
         <p><ion-button size="large" color="danger">Panik</ion-button></p>
         <!-- Füge Roten Panik Button ein -->
       </ion-col>
+
+      <!-- Begin Button Colum Grid -->
       <ion-col size="2" class="button-col ion-align-self-center">
         <ion-grid>
           <ion-row>
             <ion-col class="ion-align-self-center">
               <h2>Prototyp Adviser</h2>
-              <p>User do not see this.</p>
+              <p>User does not see this.</p>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -40,7 +73,7 @@
 
           <ion-row>
             <ion-col class="ion-align-self-center">
-              <p><span>Volume: </span> <span>{{volume}}</span></p>
+              <p><span>1. Volume: </span> <span>{{volume}}</span></p>
               <ion-buttons>
                 <ion-button (click)="changeVolume(-1)">
                   <ion-icon name="remove"></ion-icon>
@@ -66,7 +99,12 @@
           </ion-row>
           <ion-row>
             <ion-col class="ion-align-self-center">
-              <ion-button (click)="stopVideo()">4. Pause</ion-button>
+              <ion-button (click)="blankVideo()">4. Blank Video</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <ion-button (click)="stopVideo()">5. Pause</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
