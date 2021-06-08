@@ -103,4 +103,12 @@ export class MoviePage implements OnInit, AfterViewInit {
   showSubtitles() {
     this.subActive = !this.subActive;
   }
+
+  skipScene() {
+    if (this.myVideo.nativeElement.currentTime < 30) {
+      this.myVideo.nativeElement.currentTime = 30;
+    } else {
+      this.myVideo.nativeElement.currentTime = this.myVideo.nativeElement.duration;
+    }
+  }
 }

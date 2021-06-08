@@ -23,7 +23,10 @@
         <!-- Beginn Blank Smiley -->
         <div [hidden]="!videoIsBlanked">
           <h2>Video ausgeblendet</h2>
-          <img width="720" src="./assets/icon/fa0cb986-69a4-4d37-8c03-7228b9652416.svg" />
+          <img
+            width="720"
+            src="./assets/icon/fa0cb986-69a4-4d37-8c03-7228b9652416.svg"
+          />
           <a href="https://dryicons.com/icon/flat-dead-emoticon-icon-8922">
             Icon by Dryicons
           </a>
@@ -59,29 +62,26 @@
               <p>User does not see this.</p>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <!--           <ng-container *ngIf="videoPaused; else elseTemplate">
-            <ion-button (click)="stopVideo()">Pause</ion-button>
-          </ng-container>
-          <ng-template #elseTemplate>
-            <ion-button (click)="playVideo()">Play</ion-button>
-          </ng-template> -->
+          <!--           <ion-row>
             <ion-col class="ion-align-self-center">
-              <ion-button (click)="playVideo()">Play</ion-button>
+              <ng-container *ngIf="videoPaused; else elseTemplate">
+                <ion-button (click)="stopVideo()">Pause</ion-button>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <ion-button (click)="playVideo()">Play</ion-button>
+              </ng-template>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
 
           <ion-row>
             <ion-col class="ion-align-self-center">
               <p><span>1. Volume: </span> <span>{{volume}}</span></p>
-              <ion-buttons>
-                <ion-button (click)="changeVolume(-1)">
-                  <ion-icon name="remove"></ion-icon>
-                </ion-button>
-                <ion-button (click)="changeVolume(1)">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-buttons>
+              <ion-button (click)="changeVolume(-1)">
+                <ion-icon name="remove"></ion-icon>
+              </ion-button>
+              <ion-button (click)="changeVolume(1)">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
             </ion-col>
           </ion-row>
 
@@ -105,6 +105,12 @@
           <ion-row>
             <ion-col class="ion-align-self-center">
               <ion-button (click)="stopVideo()">5. Pause</ion-button>
+              <ion-button (click)="playVideo()">Play</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <ion-button (click)="skipScene()">6. Next Skip</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
