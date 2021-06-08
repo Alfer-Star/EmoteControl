@@ -27,21 +27,31 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col class="ion-align-self-center">
-              <ion-button (click)="playVideo()">Play</ion-button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
-              <ion-button (click)="stopVideo()">1. Pause</ion-button>
-            </ion-col>
-          </ion-row>
-          <!-- <ng-container *ngIf="videoPaused; else elseTemplate">
+            <!--           <ng-container *ngIf="videoPaused; else elseTemplate">
             <ion-button (click)="stopVideo()">Pause</ion-button>
           </ng-container>
           <ng-template #elseTemplate>
             <ion-button (click)="playVideo()">Play</ion-button>
           </ng-template> -->
+            <ion-col class="ion-align-self-center">
+              <ion-button (click)="playVideo()">Play</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <p><span>Volume: </span> <span>{{volume}}</span></p>
+              <ion-buttons>
+                <ion-button (click)="changeVolume(-1)">
+                  <ion-icon name="remove"></ion-icon>
+                </ion-button>
+                <ion-button (click)="changeVolume(1)">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+
           <ion-row>
             <ion-col class="ion-align-self-center">
               <ion-button (click)="muteVideo()">2. Mute</ion-button>
@@ -49,7 +59,14 @@
           </ion-row>
           <ion-row>
             <ion-col class="ion-align-self-center">
-              <ion-button (click)="showSubtitles()">3. Show Subtitles</ion-button>
+              <ion-button (click)="showSubtitles()"
+                >3. Show Subtitles</ion-button
+              >
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <ion-button (click)="stopVideo()">4. Pause</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

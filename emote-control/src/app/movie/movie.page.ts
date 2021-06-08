@@ -2,7 +2,6 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -23,14 +22,16 @@ import { SubtitleService } from '../services/subtitle.service';
 export class MoviePage implements OnInit, AfterViewInit {
   @ViewChild('video') myVideo: ElementRef;
 
-  // videoPath = './assets/movies/sample-mp4-file.mp4';
+  videoPath = './assets/movies/sample-mp4-file.mp4';
 
-  videoPath = './assets/movies/lights-out-whos-there-film-challenge-2013.mp4';
+  //videoPath = './assets/movies/lights-out-whos-there-film-challenge-2013.mp4';
 
   videoPaused = false;
 
   currentSub = 'Subtitles off';
   subActive = false;
+
+  volume = 1;
 
   constructor(private subtitleService: SubtitleService) {}
 
@@ -45,7 +46,7 @@ export class MoviePage implements OnInit, AfterViewInit {
       'play',
       () => (this.videoPaused = !this.videoPaused)
     );
-    this.myVideo.nativeElement.addEventListener('volumechange', () => {});
+    this.myVideo.nativeElement.addEventListener('volumechange', () => {this.volume = this.myVideo.nativeElement.volume;});
     this.myVideo.nativeElement.addEventListener('timeupdate', () => {
       console.log('timeupdate');
       console.log('time:' + this.myVideo.nativeElement.currentTime);
@@ -62,6 +63,19 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
   stopVideo() {
     this.myVideo.nativeElement.pause();
+  }
+
+  changeVolume(multiplikator: 1|-1) {
+    const newVolume = this.myVideo.nativeElement.volume +0.10*multiplikator;
+    if (newVolume >=1) {
+      this.myVideo.nativeElement.volume = 1;
+    } else if(newVolume <=0) {
+      this.myVideo.nativeElement.volume = 0;
+    } else {
+      this.myVideo.nativeElement.volume = newVolume;
+    }
+    this.volume = this.myVideo.nativeElement.volume;
+
   }
 
   muteVideo() {
