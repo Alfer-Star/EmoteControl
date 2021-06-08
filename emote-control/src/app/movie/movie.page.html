@@ -8,16 +8,14 @@
   <ion-grid>
     <ion-row>
       <ion-col class="video-col ion-align-self-center">
-        <div>
-          <app-subtitles [currentSub]="currentSub"></app-subtitles>
-        </div>
         <video controls webkit-playsinline class="fill-width" #video>
           <source src="{{videoPath}}" type="video/webm" />
           <source src="{{videoPath}}" type="video/mp4" />
           <source src="{{videoPath}}" type="video/ogg" />
           Your browser does not support HTML5 video.
         </video>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna </p>
+        <p class="subtitles">{{currentSub}}</p>
+        <p><ion-button size="large" color="danger">Panik</ion-button></p>
         <!-- Füge Roten Panik Button ein -->
       </ion-col>
       <ion-col size="2" class="button-col ion-align-self-center">
@@ -52,12 +50,6 @@
           <ion-row>
             <ion-col class="ion-align-self-center">
               <ion-button (click)="showSubtitles()">3. Show Subtitles</ion-button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
-              <ion-button (click)="removeSubtitles()">
-                Remove Subtitles</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

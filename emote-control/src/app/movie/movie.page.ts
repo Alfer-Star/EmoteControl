@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -22,23 +23,18 @@ import { SubtitleService } from '../services/subtitle.service';
 export class MoviePage implements OnInit, AfterViewInit {
   @ViewChild('video') myVideo: ElementRef;
 
-  videoPaused = false;
+  // videoPath = './assets/movies/sample-mp4-file.mp4';
 
   videoPath = './assets/movies/lights-out-whos-there-film-challenge-2013.mp4';
 
-  currentSub: string;
+  videoPaused = false;
+
+  currentSub = 'Subtitles off';
   subActive = false;
 
   constructor(private subtitleService: SubtitleService) {}
 
-  ngOnInit() {
-    const observer = this.subtitleService.getSubObserver();
-    observer.subscribe((sub) => {
-      if (this.subActive) {
-        this.currentSub = sub;
-      }
-    });
-  }
+  ngOnInit() {}
 
   ngAfterViewInit(): void {
     this.myVideo.nativeElement.addEventListener(
@@ -50,7 +46,15 @@ export class MoviePage implements OnInit, AfterViewInit {
       () => (this.videoPaused = !this.videoPaused)
     );
     this.myVideo.nativeElement.addEventListener('volumechange', () => {});
-    this.myVideo.nativeElement.addEventListener('timeupdate', () => {});
+    this.myVideo.nativeElement.addEventListener('timeupdate', () => {
+      console.log('timeupdate');
+      console.log('time:' + this.myVideo.nativeElement.currentTime);
+      if (this.subActive) {
+        this.currentSub = this.subtitleService.nextSub(
+          this.myVideo.nativeElement.currentTime
+        );
+      }
+    });
   }
 
   playVideo() {
@@ -65,12 +69,6 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
 
   showSubtitles() {
-    this.currentSub = 'Subtitles';
-    // Logic setting Subtitles
-    // See also Listener timeupdate
-  }
-
-  removeSubtitles() {
-    this.currentSub = undefined;
+    this.subActive = !this.subActive;
   }
 }
