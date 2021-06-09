@@ -30,19 +30,19 @@
           </div>
           <ion-buttons>
             <ion-button (click)="blankVideo()">
-              <ion-icon name="play"></ion-icon>
+              <ion-icon color="primary" name="play"></ion-icon>
             </ion-button>
             <ion-button (click)="stopVideo()">
-              <ion-icon name="Pause"> </ion-icon>
+              <ion-icon color="primary" name="Pause"> </ion-icon>
             </ion-button>
-            <ion-button [disabled]="true">
+            <ion-button [disabled]="true" color="primary">
               <span>Volume: </span> <span>{{volume}}</span>
             </ion-button>
             <ion-button (click)="changeVolume(-1)">
-              <ion-icon name="remove"></ion-icon>
+              <ion-icon color="primary" name="remove"></ion-icon>
             </ion-button>
             <ion-button (click)="changeVolume(1)">
-              <ion-icon name="add"></ion-icon>
+              <ion-icon color="primary" name="add"></ion-icon>
             </ion-button>
           </ion-buttons>
         </div>
