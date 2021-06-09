@@ -55,8 +55,18 @@ export class SubtitleService {
     this.subs.push({ begin: 10, end: 17, value: '' });
     this.subs.push({
       begin: 17,
-      end: 40,
+      end: 34,
       value: 'Lichtschalter klickt',
+    });
+    this.subs.push({
+      begin: 34,
+      end: 37,
+      value: 'erschrickt hörbar',
+    });
+    this.subs.push({
+      begin: 37,
+      end: 40,
+      value: '',
     });
     this.subs.push({
       begin: 40,
@@ -76,7 +86,7 @@ export class SubtitleService {
     this.subs.push({
       begin: 64,
       end: 72,
-      value: 'Knarzen',
+      value: 'Dielen knarzen',
     });
     this.subs.push({
       begin: 72,
@@ -105,13 +115,8 @@ export class SubtitleService {
     });
     this.subs.push({
       begin: 94,
-      end: 96,
-      value: 'Schreckenslaut, Wimmern',
-    });
-    this.subs.push({
-      begin: 96,
       end: 100,
-      value: 'Schreckenslaut, Wimmern',
+      value: 'Wimmern',
     });
     this.subs.push({
       begin: 100,
