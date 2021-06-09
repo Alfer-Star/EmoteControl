@@ -23,9 +23,9 @@ import { SubtitleService } from '../services/subtitle.service';
 export class MoviePage implements OnInit, AfterViewInit {
   @ViewChild('video') myVideo: ElementRef;
 
-  videoPath = './assets/movies/sample-mp4-file.mp4';
+  //videoPath = './assets/movies/sample-mp4-file.mp4';
 
-  //videoPath = './assets/movies/lights-out-whos-there-film-challenge-2013.mp4';
+  videoPath = './assets/movies/lights-out-whos-there-film-challenge-2013.mp4';
 
   videoPaused = false;
 
@@ -36,6 +36,9 @@ export class MoviePage implements OnInit, AfterViewInit {
   videoIsBlanked = false;
 
   volume = 1;
+
+  /**Skips are Min 0:41, 1:22 and 2:30 for horrorfilm */
+  skips = [41,60+22, 120+30];
 
   constructor(
     private subtitleService: SubtitleService,
@@ -105,8 +108,12 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
 
   skipScene() {
-    if (this.myVideo.nativeElement.currentTime < 30) {
-      this.myVideo.nativeElement.currentTime = 30;
+    if (this.myVideo.nativeElement.currentTime < this.skips[0]) {
+      this.myVideo.nativeElement.currentTime = this.skips[0];
+    } else if (this.myVideo.nativeElement.currentTime < this.skips[1]) {
+      this.myVideo.nativeElement.currentTime = this.skips[1];
+    }else if (this.myVideo.nativeElement.currentTime < this.skips[2]) {
+      this.myVideo.nativeElement.currentTime = this.skips[2];
     } else {
       this.myVideo.nativeElement.currentTime = this.myVideo.nativeElement.duration;
     }
