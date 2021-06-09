@@ -50,41 +50,103 @@ export class SubtitleService {
   protected initSubs() {
     this.subs = new Array<Subtitle>();
 
-    this.subs.push({ begin: 0, end: 10, value: '0-10000' });
+    this.subs.push({ begin: 0, end: 4, value: '' });
+    this.subs.push({ begin: 4, end: 10, value: 'Regen' });
+    this.subs.push({ begin: 10, end: 17, value: '' });
     this.subs.push({
-      begin: 10,
-      end: 20,
-      value: 'Film begin: 10000, end: 20000',
+      begin: 17,
+      end: 40,
+      value: 'Lichtschalter klickt',
     });
     this.subs.push({
-      begin: 20,
-      end: 30,
-      value: 'Film begin: 20000, end: 30000',
+      begin: 40,
+      end: 49,
+      value: 'Klebeband knarzt',
     });
     this.subs.push({
-      begin: 30,
-      end: 50,
-      value: 'Film begin: 30000, end: 50000',
+      begin: 49,
+      end: 58,
+      value: 'Laken rascheln',
     });
     this.subs.push({
-      begin: 50,
-      end: 70,
-      value: 'Film begin: 50000, end: 70000',
+      begin: 58,
+      end: 64,
+      value: 'leise Geräusche',
     });
     this.subs.push({
-      begin: 70,
-      end: 90,
-      value: 'Film begin: 70000, end: 90000',
+      begin: 64,
+      end: 72,
+      value: 'Knarzen',
+    });
+    this.subs.push({
+      begin: 72,
+      end: 74,
+      value: 'ängstliches Wimmern',
+    });
+    this.subs.push({
+      begin: 74,
+      end: 76,
+      value: 'Klick',
+    });
+    this.subs.push({
+      begin: 76,
+      end: 80,
+      value: 'schnelle tappende Schritte',
+    });
+    this.subs.push({
+      begin: 80,
+      end: 94,
+      value: 'schnelle tappende Schritte verstummen',
     });
     this.subs.push({
       begin: 90,
-      end: 200,
-      value: 'Film begin: 90000, end: 200000',
+      end: 94,
+      value: '',
     });
     this.subs.push({
-      begin: 200,
-      end: 300,
-      value: 'Film begin: 200000, end: 300000',
+      begin: 94,
+      end: 96,
+      value: 'Schreckenslaut, Wimmern',
+    });
+    this.subs.push({
+      begin: 96,
+      end: 100,
+      value: 'Schreckenslaut, Wimmern',
+    });
+    this.subs.push({
+      begin: 100,
+      end: 125,
+      value: 'Lampe summt',
+    });
+    this.subs.push({
+      begin: 125,
+      end: 130,
+      value: 'Stecker klackt',
+    });
+    this.subs.push({
+      begin: 130,
+      end: 140,
+      value: 'Lichtschalter klicken',
+    });
+    this.subs.push({
+      begin: 140,
+      end: 148,
+      value: '',
+    });
+    this.subs.push({
+      begin: 148,
+      end: 149,
+      value: 'leises Fauchen',
+    });
+    this.subs.push({
+      begin: 149,
+      end: 152,
+      value: 'klick',
+    });
+    this.subs.push({
+      begin: 152,
+      end: 161,
+      value: 'Abspann',
     });
   }
 }

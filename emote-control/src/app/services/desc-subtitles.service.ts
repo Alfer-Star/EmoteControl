@@ -12,41 +12,98 @@ export class DescSubtitlesService extends SubtitleService {
   initSubs() {
     this.subs = new Array<Subtitle>();
 
-    this.subs.push({ begin: 0, end: 10, value: '0-10000' });
+    this.subs.push({ begin: 0, end: 4, value: '' });
+    this.subs.push({ begin: 4, end: 10, value: 'ein Wohnhaus' });
     this.subs.push({
       begin: 10,
-      end: 20,
-      value: 'Film begin: 10000, end: 20000',
+      end: 17,
+      value: 'eine Frau geht durch einen Flur',
     });
     this.subs.push({
-      begin: 20,
-      end: 30,
-      value: 'Film begin: 20000, end: 30000',
+      begin: 17,
+      end: 25,
+      value:
+        'Sie macht das Flurlicht hinter sich aus. Sie sieht den dunklen Umriss einer Frau. Sie erschrickt. ',
     });
     this.subs.push({
-      begin: 30,
-      end: 50,
-      value: 'Film begin: 30000, end: 50000',
+      begin: 25,
+      end: 33,
+      value: 'Sie schaltet das Licht ein. Der Flur ist leer. Sie testet mehrfach. Der Umriss im Dunkeln bleibt.',
     });
     this.subs.push({
-      begin: 50,
-      end: 70,
-      value: 'Film begin: 50000, end: 70000',
+      begin: 33,
+      end: 40,
+      value: 'Plötzlich ist der Umriss sehr nah. Sie erschrickt und schaltet das Licht wieder ein.',
     });
     this.subs.push({
-      begin: 70,
-      end: 90,
-      value: 'Film begin: 70000, end: 90000',
+      begin: 40,
+      end: 49,
+      value: 'Die Frau fixiert den Lichtschalter im Flur mit Klebeband. Das Licht ist an.',
     });
     this.subs.push({
-      begin: 90,
-      end: 200,
-      value: 'Film begin: 90000, end: 200000',
+      begin: 49,
+      end: 60,
+      value: 'Sie geht legt sich ins Bett und lässt ihr Nachtlicht an. Das Flurlicht scheint durch die leicht geöffnete Tür.',
     });
     this.subs.push({
-      begin: 200,
-      end: 300,
-      value: 'Film begin: 200000, end: 300000',
+      begin: 60,
+      end: 74,
+      value: 'Sie hört leise Geräusche im Flur',
+    });
+    this.subs.push({
+      begin: 74,
+      end: 80,
+      value: 'Das Flurlicht geht aus',
+    });
+    this.subs.push({
+      begin: 80,
+      end: 92,
+      value: 'Schritte nähern sich',
+    });
+    this.subs.push({
+      begin: 92,
+      end: 95,
+      value: 'Sie lugt hervor. Die Tür bewegt sich',
+    });
+    this.subs.push({
+      begin: 95,
+      end: 100,
+      value: 'Sie versteckt sich wieder',
+    });
+    this.subs.push({
+      begin: 100,
+      end: 119,
+      value: 'Die Nachttischlampe flackert',
+    });
+    this.subs.push({
+      begin: 119,
+      end: 125,
+      value: 'Sie streckt die Hand aus dem Bett und tastet nach dem Stecker',
+    });
+    this.subs.push({
+      begin: 125,
+      end: 130,
+      value: 'Sie richtet den Stecker, die Lampe scheint hell, sie wartet unter der Decke ab',
+    });
+    this.subs.push({
+      begin: 130,
+      end: 140,
+      value: 'Sie hört ein Klicken, und lugt heraus. Das Flurlicht ist wieder an',
+    });
+    this.subs.push({
+      begin: 140,
+      end: 149,
+      value: 'Sie hört etwas und sieht sich um',
+    });
+    this.subs.push({
+      begin: 149,
+      end: 155,
+      value: 'Sie dreht sich und sieht neben ihrem Bett eine lauernde Frau mit weißen Augen kurz bevor diese das Licht ausschaltet…',
+    });
+    this.subs.push({
+      begin: 155,
+      end: 161,
+      value: 'Abspann',
     });
   }
 }
