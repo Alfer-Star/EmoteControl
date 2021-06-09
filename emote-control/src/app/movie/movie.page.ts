@@ -82,7 +82,7 @@ export class MoviePage implements OnInit, AfterViewInit {
     this.myVideo.nativeElement.pause();
   }
 
-  changeVolume(multiplikator: 1 | -1) {
+  changeVolume(multiplikator: number) {
     const newVolume = this.myVideo.nativeElement.volume + 0.1 * multiplikator;
     if (newVolume >= 1) {
       this.myVideo.nativeElement.volume = 1;
@@ -92,6 +92,14 @@ export class MoviePage implements OnInit, AfterViewInit {
       this.myVideo.nativeElement.volume = newVolume;
     }
     this.volume = this.myVideo.nativeElement.volume;
+  }
+
+  lowVolumeMode() {
+    if (this.myVideo.nativeElement.volume>0,2) {
+      this.myVideo.nativeElement.volume = 0.1;
+    } else {
+      this.changeVolume(10);
+    }
   }
 
   blankVideo() {
