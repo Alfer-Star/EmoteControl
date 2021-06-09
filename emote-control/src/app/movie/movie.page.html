@@ -9,7 +9,6 @@
     <ion-row>
       <ion-col class="video-col ion-align-self-center">
         <video
-          [hidden]="videoIsBlanked"
           controls
           webkit-playsinline
           class="fill-width"
@@ -23,13 +22,12 @@
         <!-- Beginn Blank Smiley -->
         <div [hidden]="!videoIsBlanked">
           <h2>Video ausgeblendet</h2>
+          <div class="smiley">
           <img
             width="720"
             src="./assets/icon/fa0cb986-69a4-4d37-8c03-7228b9652416.svg"
           />
-          <a href="https://dryicons.com/icon/flat-dead-emoticon-icon-8922">
-            Icon by Dryicons
-          </a>
+          </div>
           <ion-buttons>
             <ion-button (click)="blankVideo()">
               <ion-icon name="play"></ion-icon>
@@ -48,7 +46,8 @@
             </ion-button>
           </ion-buttons>
         </div>
-        <p class="subtitles">{{currentSub}}</p>
+        <p class="subtitles" [hidden]="videoIsBlanked" >{{currentSub}}</p>
+        <p class="subtitles subtitles-smiley" [hidden]="!videoIsBlanked">{{currentSub}}</p>
         <!-- Panik Button -->
         <p><ion-button size="large" color="danger" (click)="skipScene()">Panik</ion-button></p>
       </ion-col>

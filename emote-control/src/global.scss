@@ -24,3 +24,43 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+
+.video-col > div:nth-child(2) {
+  width: 100%;
+  height: calc(100% - 85px);
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  background-color: #fff;
+}
+
+.subtitles {
+	position: relative;
+	top: -80px;
+	left: 0;
+	color: #fff;
+	padding-left: 20px;
+	font-size: 20px;
+	height: 0;
+	text-align: center;
+}
+.subtitles-smiley{
+  color: #000;
+  top: -250px;
+  z-index: 40;
+}
+
+.smiley {
+  display: flex;
+  height: 484px;
+}
+
+.video-col .smiley > img {
+  max-height: 250px;
+  width: 100%;
+  margin-top: 50px;
+}
