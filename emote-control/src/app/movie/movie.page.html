@@ -1,11 +1,21 @@
 <ion-header>
-  <ion-toolbar>
+<!--   <ion-toolbar>
     <ion-title>Horror Movie</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
+        <img
+        src="./assets/MicrosoftTeams-image (1).png"
+      />
 </ion-header>
 
 <ion-content>
   <ion-grid>
+<!--     <ion-row>
+      <ion-col class="video-col ion-align-self-center">
+        <img
+        src="./assets/MicrosoftTeams-image.png"
+      />
+      </ion-col>
+    </ion-row> -->
     <ion-row>
       <ion-col class="video-col ion-align-self-center">
         <video
@@ -49,7 +59,6 @@
         <p class="subtitles" [hidden]="videoIsBlanked" >{{currentSub}}</p>
         <p class="subtitles subtitles-smiley" [hidden]="!videoIsBlanked">{{currentSub}}</p>
         <!-- Panik Button -->
-        <p><ion-button size="large" color="danger" (click)="skipScene()">Panik</ion-button></p>
       </ion-col>
 
       <!-- Begin Button Colum Grid -->
@@ -116,6 +125,17 @@
           <ion-row>
             <ion-col class="ion-align-self-center">
               <ion-button (click)="skipScene()">6. Next Skip</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <h2>Users Remote</h2>
+              <p>User can press this if they panic.</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-center">
+              <ion-button size="large" color="danger" (click)="skipScene()">Panic</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
