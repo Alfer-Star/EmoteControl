@@ -26,7 +26,17 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+// from https://www.cufonfonts.com/font/netflix-sans#google_vignette
+// how to: https://levelup.gitconnected.com/how-to-add-a-new-font-into-your-ionic-app-b7e0871ff5f4 
+/* @font-face {   
+  font-family: 'NetflixSans';
+  src: url('../assets/fonts/NetflixSansRegular.ttf');
+}
 
+body {
+  font-family:NetflixSans !important;
+  font-size:1.1em;
+ }*/
 
 .video-col > div:nth-child(2) {
   width: 100%;
