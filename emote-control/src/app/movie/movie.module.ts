@@ -6,6 +6,7 @@ import { DescSubtitlesService } from '../services/desc-subtitles.service';
 import { SubtitleService } from '../services/subtitle.service';
 import { MoviePageRoutingModule } from './movie-routing.module';
 import { MoviePage } from './movie.page';
+import { CongratModalComponent } from './congrat-modal/congrat-modal.component';
 
 
 
@@ -17,7 +18,7 @@ import { MoviePage } from './movie.page';
     IonicModule,
     MoviePageRoutingModule
   ],
-  declarations: [MoviePage],
+  declarations: [MoviePage, CongratModalComponent],
   providers: [SubtitleService, DescSubtitlesService]
 })
 export class MoviePageModule {}

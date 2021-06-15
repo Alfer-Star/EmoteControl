@@ -1,3 +1,4 @@
+import { ModalController } from '@ionic/angular';
 import { DescSubtitlesService } from './../services/desc-subtitles.service';
 import {
   AfterViewInit,
@@ -7,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { SubtitleService } from '../services/subtitle.service';
+import { CongratModalComponent } from './congrat-modal/congrat-modal.component';
 
 /**
  * From here
@@ -37,13 +39,17 @@ export class MoviePage implements OnInit, AfterViewInit {
 
   volume = 1;
 
+  noModalSchown= true;
+
   /**Skips are Min 0:41, 1:22 and 2:30 for horrorfilm */
-  skips = [41,60+22, 120+30];
+  skips = [41, 60 + 22, 120 + 30];
 
   constructor(
     private subtitleService: SubtitleService,
-    private descSubtitlesService: DescSubtitlesService
+    private descSubtitlesService: DescSubtitlesService,
+    private modalController: ModalController
   ) {}
+
 
   ngOnInit() {}
 
@@ -62,6 +68,11 @@ export class MoviePage implements OnInit, AfterViewInit {
     });
     this.myVideo.nativeElement.addEventListener('timeupdate', () => {
       console.log('time:' + this.myVideo.nativeElement.currentTime);
+      // Show Congrats Modal on Abspan
+      if (this.noModalSchown && this.myVideo.nativeElement.currentTime > 152) {
+        this.noModalSchown = false;
+        this.presentModal();
+      }
       // Subtitles
       if (this.descSubActive) {
         this.currentSub = this.descSubtitlesService.nextSub(
@@ -95,7 +106,7 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
 
   lowVolumeMode() {
-    if (this.myVideo.nativeElement.volume>0,2) {
+    if ((this.myVideo.nativeElement.volume > 0, 2)) {
       this.myVideo.nativeElement.volume = 0.1;
     } else {
       this.changeVolume(10);
@@ -120,10 +131,20 @@ export class MoviePage implements OnInit, AfterViewInit {
       this.myVideo.nativeElement.currentTime = this.skips[0];
     } else if (this.myVideo.nativeElement.currentTime < this.skips[1]) {
       this.myVideo.nativeElement.currentTime = this.skips[1];
-    }else if (this.myVideo.nativeElement.currentTime < this.skips[2]) {
+    } else if (this.myVideo.nativeElement.currentTime < this.skips[2]) {
       this.myVideo.nativeElement.currentTime = this.skips[2];
     } else {
-      this.myVideo.nativeElement.currentTime = this.myVideo.nativeElement.duration;
+      this.myVideo.nativeElement.currentTime =
+        this.myVideo.nativeElement.duration;
     }
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: CongratModalComponent,
+      cssClass: 'my-custom-class',
+    });
+    modal.onDidDismiss().then((val) => {});
+    return await modal.present();
   }
 }
