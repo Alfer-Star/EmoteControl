@@ -1,5 +1,7 @@
+import { StepSelectionComponent } from './step-selection/step-selection.component';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +10,23 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private modalController: ModalController
+  ) {}
 
   navigateMovie() {
-    this.router.navigate(['/movie']);
+    this.presentModal();
   }
 
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: StepSelectionComponent,
+      cssClass: 'my-custom-class',
+    });
+    modal.onDidDismiss().then((val) => {
+      this.router.navigate(['/movie']);
+    });
+    return await modal.present();
+  }
 }

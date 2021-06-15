@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wie viel willst du aushalten?</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row *ngFor="let item of items">
+      <ion-col>
+        <ion-button
+          (click)="onClick()"
+          expand="block"
+          fill="solid"
+          color="light"
+        >
+          {{item}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="free-space">
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          (click)="onClick()"
+          expand="block"
+          fill="clear"
+          color="medium"
+        >
+          Orginal Film
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
