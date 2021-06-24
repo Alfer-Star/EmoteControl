@@ -57,29 +57,38 @@
         <div [hidden]="mediumControl">
           <ion-grid>
             <ion-row>
-              <ion-col size="3"
-                >{{scareReduxListDown[scareReduxIndex]}}</ion-col
-              >
-              <ion-col size="2">
-                <ion-button
-                  disabled="{{scareReduxIndex<=0}}"
-                  (click)="scareReductioUp()"
-                >
-                  <ion-icon slot="start" name="add"></ion-icon>
-                  Click me
-                </ion-button>
+              <ion-col size="3">
+                <div class="ion-text-center">
+                  <ion-text color="primary" >
+                    {{scareReduxDown}}
+                  </ion-text>
+                </div>
               </ion-col>
-              <ion-col>|</ion-col>
-              <ion-col size="2">
+              <ion-col size="3">
                 <ion-button
-                  disabled="{{scareReduxIndex>=scareReduxListUp.length}}"
+                  expand="full"
+                  disabled="{{scareReduxIndex<=0}}"
                   (click)="scareReductioDown()"
                 >
-                  <ion-icon slot="start" name="add"></ion-icon>
-                  Click me
+                  <ion-icon slot="start" name="remove"></ion-icon>
                 </ion-button>
               </ion-col>
-              <ion-col size="3">{{scareReduxListUp[scareReduxIndex]}}</ion-col>
+              <ion-col size="3">
+                <ion-button
+                  expand="full"
+                  disabled="{{scareReduxIndex>=scareReduxListUp.length}}"
+                  (click)=" scareReductioUp()"
+                >
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col size="3">
+                <div class="ion-text-center">
+                  <ion-text color="primary" >
+                    {{scareReduxUp}}
+                  </ion-text>
+                </div>
+              </ion-col>
             </ion-row>
           </ion-grid>
         </div>

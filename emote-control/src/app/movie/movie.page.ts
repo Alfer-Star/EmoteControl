@@ -40,7 +40,7 @@ export class MoviePage implements OnInit, AfterViewInit {
 
   volume = 1;
 
-  noModalSchown= true;
+  noModalSchown = true;
 
   /**Skips are Min 0:41, 1:22 and 2:30 for horrorfilm */
   skips = [41, 60 + 22, 120 + 30];
@@ -48,10 +48,25 @@ export class MoviePage implements OnInit, AfterViewInit {
   fullControl: boolean;
   mediumControl: boolean;
 
-
   scareReduxIndex = 0;
-  scareReduxListUp = ['Low Volume Mode', 'Mute', 'Show Subtitles', 'Blank Video', 'Pause', 'Next Skip'];
-  scareReduxListDown = ['Nothing', ' High Volume Mode', 'No Mute', 'remove Subtitles', 'unblank Video', 'Play'];
+  scareReduxListUp = [
+    'Low Volume',
+    'Mute',
+    'Show Subtitles',
+    'Blank Video',
+    'Pause',
+    'Next Skip',
+  ];
+  scareReduxUp = this.scareReduxListUp[this.scareReduxIndex];
+  scareReduxListDown = [
+    'Nothing',
+    ' Normal Volume',
+    'No Mute',
+    'Remove Subtitles',
+    'Unblank Video',
+    'Play',
+  ];
+  scareReduxDown = this.scareReduxListUp[this.scareReduxIndex];
 
   constructor(
     private subtitleService: SubtitleService,
@@ -59,7 +74,6 @@ export class MoviePage implements OnInit, AfterViewInit {
     private modalController: ModalController,
     private control: ControlServiceService
   ) {}
-
 
   ngOnInit() {
     this.fullControl = !this.control.fullControl;
@@ -160,11 +174,45 @@ export class MoviePage implements OnInit, AfterViewInit {
     return await modal.present();
   }
 
-  scareReductioDown(){
-    this.scareReduxIndex --;
+  scareReductioDown() {
+    this.scareReduxIndex -= 1;
+    this.changeReductionControl(this.scareReduxIndex);
   }
 
-  scareReductioUp(){
-    this.scareReduxIndex ++;
+  scareReductioUp() {
+    this.scareReduxIndex += 1;
+    this.changeReductionControl(this.scareReduxIndex);
+  }
+  changeReductionControl(index: number) {
+    this.scareReduxDown = this.scareReduxListDown[index];
+    this.scareReduxUp = this.scareReduxListUp[index];
+
+    switch (index) {
+      case 1:
+        this.changeVolume(-1);
+        break;
+      case 2:
+        this.muteVideo();
+        break;
+      case 3:
+        this.showSubtitles();
+        break;
+      case 4:
+        this.blankVideo();
+        break;
+      case 5:
+        if (this.videoPaused) {
+          this.playVideo();
+        } else {
+          this.stopVideo();
+        }
+        break;
+      case 6:
+        this.skipScene();
+        break;
+
+      default:
+        break;
+    }
   }
 }
