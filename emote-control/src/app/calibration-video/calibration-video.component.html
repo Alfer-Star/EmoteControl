@@ -1,0 +1,25 @@
+<ion-header>
+  <!--   <ion-toolbar>
+        <ion-title>Horror Movie</ion-title>
+      </ion-toolbar> -->
+  <img src="./assets/MicrosoftTeams-image (1).png" />
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="video-col ion-align-self-center">
+        <video controls webkit-playsinline class="fill-width" #video>
+          <source src="{{ videoPath }}" type="video/webm" />
+          <source src="{{ videoPath }}" type="video/mp4" />
+          <source src="{{ videoPath }}" type="video/ogg" />
+          Your browser does not support HTML5 video.
+        </video>
+        <ion-text> Your reference Pulse is 74. Go Back and enjoy your movie!</ion-text>
+        <ion-button href="/home" expand="block" fill="solid" color="light"> Back</ion-button>
+      </ion-col>
+
+      <!-- Begin Button Colum Grid -->
+    </ion-row>
+  </ion-grid>
+</ion-content>

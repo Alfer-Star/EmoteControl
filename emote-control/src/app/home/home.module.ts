@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { StepSelectionComponent } from './step-selection/step-selection.component';
+import { CalibrationVideoComponent } from '../calibration-video/calibration-video.component';
 
 
 @NgModule({
@@ -15,6 +16,6 @@ import { StepSelectionComponent } from './step-selection/step-selection.componen
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, StepSelectionComponent]
+  declarations: [HomePage, StepSelectionComponent, CalibrationVideoComponent]
 })
 export class HomePageModule {}
