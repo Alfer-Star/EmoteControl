@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { SubtitleService } from '../services/subtitle.service';
 import { CongratModalComponent } from './congrat-modal/congrat-modal.component';
+import { ControlServiceService } from '../services/control-service.service';
 
 /**
  * From here
@@ -44,14 +45,26 @@ export class MoviePage implements OnInit, AfterViewInit {
   /**Skips are Min 0:41, 1:22 and 2:30 for horrorfilm */
   skips = [41, 60 + 22, 120 + 30];
 
+  fullControl: boolean;
+  mediumControl: boolean;
+
+
+  scareReduxIndex = 0;
+  scareReduxListUp = ['Low Volume Mode', 'Mute', 'Show Subtitles', 'Blank Video', 'Pause', 'Next Skip'];
+  scareReduxListDown = ['Nothing', ' High Volume Mode', 'No Mute', 'remove Subtitles', 'unblank Video', 'Play'];
+
   constructor(
     private subtitleService: SubtitleService,
     private descSubtitlesService: DescSubtitlesService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private control: ControlServiceService
   ) {}
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fullControl = !this.control.fullControl;
+    this.mediumControl = !this.control.mediumControl;
+  }
 
   ngAfterViewInit(): void {
     // EventListener
@@ -145,5 +158,13 @@ export class MoviePage implements OnInit, AfterViewInit {
     });
     modal.onDidDismiss().then((val) => {});
     return await modal.present();
+  }
+
+  scareReductioDown(){
+    this.scareReduxIndex --;
+  }
+
+  scareReductioUp(){
+    this.scareReduxIndex ++;
   }
 }

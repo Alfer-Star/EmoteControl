@@ -27,6 +27,19 @@
     <ion-row class="free-space">
       <ion-col> </ion-col>
     </ion-row>
+    <!-- Low Level Buttons -->
+    <ion-row>
+      <ion-col>
+        <ion-button
+          (click)="changeControlLevel()"
+          expand="block"
+          fill="clear"
+          color="medium"
+        >
+          {{controlLevel}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col>
         <ion-button

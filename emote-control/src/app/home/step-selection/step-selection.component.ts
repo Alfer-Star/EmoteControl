@@ -1,3 +1,4 @@
+import { ControlServiceService } from './../../services/control-service.service';
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepSelectionComponent implements OnInit {
   items = ['Angsthase', 'Abenteurer', 'Horror Veteran'];
-  constructor(private modalController: ModalController) {}
+  controlLevel: string;
+  constructor(private modalController: ModalController, private control: ControlServiceService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.changeControlLevel();
+  }
 
   onClick(){
     this. dismiss();
@@ -22,5 +26,9 @@ export class StepSelectionComponent implements OnInit {
     this.modalController.dismiss({
       dismissed: true
     });
+  }
+
+  changeControlLevel(){
+    this.controlLevel = this.control.nextControlIndex();
   }
 }
