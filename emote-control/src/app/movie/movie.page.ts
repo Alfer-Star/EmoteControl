@@ -67,7 +67,6 @@ export class MoviePage implements OnInit, AfterViewInit {
       this.volume = this.myVideo.nativeElement.volume;
     });
     this.myVideo.nativeElement.addEventListener('timeupdate', () => {
-      console.log('time:' + this.myVideo.nativeElement.currentTime);
       // Show Congrats Modal on Abspan
       if (this.noModalSchown && this.myVideo.nativeElement.currentTime > 152) {
         this.noModalSchown = false;

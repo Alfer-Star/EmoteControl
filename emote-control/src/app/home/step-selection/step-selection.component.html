@@ -5,6 +5,13 @@
 </ion-header>
 <ion-content>
   <ion-grid fixed>
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-4>
+        <img src="./assets/Logo_EmoteControl.png" />
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
     <ion-row *ngFor="let item of items">
       <ion-col>
         <ion-button
@@ -13,14 +20,12 @@
           fill="solid"
           color="light"
         >
-          {{item}}
+          {{ item }}
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row class="free-space">
-      <ion-col>
-
-      </ion-col>
+      <ion-col> </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
@@ -31,6 +36,18 @@
           color="medium"
         >
           Orginal Film
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          href="/calibration"
+          expand="block"
+          fill="clear"
+          color="medium"
+        >
+          Calibration Film
         </ion-button>
       </ion-col>
     </ion-row>
