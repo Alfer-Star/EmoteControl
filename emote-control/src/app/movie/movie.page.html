@@ -53,19 +53,19 @@
         <p class="subtitles subtitles-smiley" [hidden]="!videoIsBlanked">
           {{currentSub}}
         </p>
-        <!-- Panik Button -->
         <div [hidden]="mediumControl">
           <ion-grid>
             <ion-row>
               <ion-col size="3">
                 <div class="ion-text-center">
-                  <ion-text color="primary" >
+                  <ion-text color="dark" >
                     {{scareReduxDown}}
                   </ion-text>
                 </div>
               </ion-col>
               <ion-col size="3">
                 <ion-button
+                color="light"
                   expand="full"
                   disabled="{{scareReduxIndex<=0}}"
                   (click)="scareReductioDown()"
@@ -75,6 +75,7 @@
               </ion-col>
               <ion-col size="3">
                 <ion-button
+                color="light"
                   expand="full"
                   disabled="{{scareReduxIndex>=scareReduxListUp.length}}"
                   (click)=" scareReductioUp()"
@@ -84,7 +85,7 @@
               </ion-col>
               <ion-col size="3">
                 <div class="ion-text-center">
-                  <ion-text color="primary" >
+                  <ion-text color="dark" >
                     {{scareReduxUp}}
                   </ion-text>
                 </div>
@@ -94,23 +95,21 @@
         </div>
         <div [hidden]="fullControl">
           <ion-grid>
-            <ion-row>
+            <ion-row class="ion-justify-content-center">
               <ion-col size="4"></ion-col>
-              <ion-col size="4">
-                <ion-buttons>
-                  <ion-button (click)="muteVideo()"
+              <ion-col >
+                  <ion-button (click)="muteVideo()" size="large" color="medium"
                     ><ion-icon name="volume-mute-outline"></ion-icon
                   ></ion-button>
-                  <ion-button (click)="showSubtitles()"
+                  <ion-button (click)="showSubtitles()" size="large" color="medium"
                     ><ion-icon name="text-outline"></ion-icon
                   ></ion-button>
-                  <ion-button (click)="blankVideo()"
+                  <ion-button (click)="blankVideo()" size="large" color="medium"
                     ><ion-icon name="archive-outline"></ion-icon
                   ></ion-button>
-                  <ion-button (click)="skipScene()"
+                  <ion-button (click)="skipScene()" size="large" color="medium"
                     ><ion-icon name="play-skip-forward-outline"></ion-icon
                   ></ion-button>
-                </ion-buttons>
               </ion-col>
               <ion-col size="4"></ion-col>
             </ion-row>

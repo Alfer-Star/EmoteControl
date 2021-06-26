@@ -55,18 +55,18 @@ export class MoviePage implements OnInit, AfterViewInit {
     'Show Subtitles',
     'Blank Video',
     'Pause',
-    'Next Skip',
+    'Skip Scene',
   ];
-  scareReduxUp = this.scareReduxListUp[this.scareReduxIndex];
+  scareReduxUp: string;
   scareReduxListDown = [
     'Nothing',
-    ' Normal Volume',
+    'Normal Volume',
     'No Mute',
     'Remove Subtitles',
     'Unblank Video',
     'Play',
   ];
-  scareReduxDown = this.scareReduxListUp[this.scareReduxIndex];
+  scareReduxDown: string;
 
   constructor(
     private subtitleService: SubtitleService,
@@ -78,6 +78,7 @@ export class MoviePage implements OnInit, AfterViewInit {
   ngOnInit() {
     this.fullControl = !this.control.fullControl;
     this.mediumControl = !this.control.mediumControl;
+    this.changeReductionControl(this.scareReduxIndex);
   }
 
   ngAfterViewInit(): void {
