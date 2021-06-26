@@ -30,13 +30,16 @@
     <!-- Low Level Buttons -->
     <ion-row>
       <ion-col>
+        <div class="ion-text-center">
+          <ion-text color="medium">Scare Reduction Steps: <em>{{ controlLevel }}</em></ion-text>
+        </div>
         <ion-button
           (click)="changeControlLevel()"
           expand="block"
           fill="clear"
-          color="medium"
+          color="dark"
         >
-          {{controlLevel}}
+          Next Control Level
         </ion-button>
       </ion-col>
     </ion-row>
