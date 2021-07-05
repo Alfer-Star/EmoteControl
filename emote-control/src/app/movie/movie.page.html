@@ -15,7 +15,7 @@
       </ion-col>
     </ion-row> -->
     <ion-row>
-      <ion-col class="video-col ion-align-self-center">
+      <ion-col class="video-col">
         <video controls webkit-playsinline class="fill-width" #video>
           <source src="{{videoPath}}" type="video/webm" />
           <source src="{{videoPath}}" type="video/mp4" />
@@ -117,15 +117,13 @@
       </ion-col>
 
       <!-- Begin Button Colum Grid -->
-      <ion-col size="2" class="button-col ion-align-self-center">
+      <ion-col size="2" class="button-col">
         <ion-grid>
           <ion-row>
             <ion-col class="ion-align-self-center">
               <h2>Prototyp Adviser</h2>
               <p>Users do not see this.</p>
-            </ion-col>
-          </ion-row>
-          <!--           <ion-row>
+              <!--           <ion-row>
             <ion-col class="ion-align-self-center">
               <ng-container *ngIf="videoPaused; else elseTemplate">
                 <ion-button (click)="stopVideo()">Pause</ion-button>
@@ -135,9 +133,6 @@
               </ng-template>
             </ion-col>
           </ion-row> -->
-
-          <ion-row>
-            <ion-col class="ion-align-self-center">
               <p><span>Volume: </span> <span>{{volume}}</span></p>
               <!--<ion-item>
                  <ion-range min="0" max="1" step="0.05" onchange="">
@@ -151,34 +146,13 @@
               <!-- <ion-button (click)="changeVolume(1)">
                 <ion-icon name="add"></ion-icon>
               </ion-button> -->
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col class="ion-align-self-center">
               <ion-button (click)="muteVideo()">2. Mute</ion-button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
               <ion-button (click)="showSubtitles()"
                 >3. Show Subtitles</ion-button
               >
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
               <ion-button (click)="blankVideo()">4. Blank Video</ion-button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
               <ion-button (click)="stopVideo()">5. Pause</ion-button>
               <ion-button (click)="playVideo()">Play</ion-button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
               <ion-button (click)="skipScene()">6. Next Skip</ion-button>
               <ion-button color="danger" (click)="presentModal()">
                 Congrats
@@ -192,13 +166,9 @@
             <ion-col class="ion-align-self-center">
               <h2>Users Remote</h2>
               <p>Users can press this if they panic.</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
-              <ion-button size="large" color="danger" (click)="skipScene()"
-                >Panic</ion-button
-              >
+              <ion-button size="large" color="danger" (click)="skipScene()">
+                Panic
+              </ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
