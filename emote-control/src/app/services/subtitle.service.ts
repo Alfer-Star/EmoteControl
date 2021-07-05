@@ -21,8 +21,6 @@ export class SubtitleService {
    */
   nextSub(time: number) {
     this.lastTime = time;
-    console.log(this.lastTimeIndex);
-    console.log(this.subs.length);
     if (
       this.lastTimeIndex &&
       this.lastTimeIndex > 0 &&

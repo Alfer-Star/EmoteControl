@@ -1,3 +1,4 @@
+import { LoggingService } from './../services/logging.service';
 import { ModalController } from '@ionic/angular';
 import { DescSubtitlesService } from './../services/desc-subtitles.service';
 import {
@@ -74,7 +75,8 @@ export class MoviePage implements OnInit, AfterViewInit {
     private subtitleService: SubtitleService,
     private descSubtitlesService: DescSubtitlesService,
     private modalController: ModalController,
-    private control: ControlServiceService
+    private control: ControlServiceService,
+    private loggingService: LoggingService
   ) {}
 
   ngOnInit() {
@@ -295,6 +297,18 @@ export class MoviePage implements OnInit, AfterViewInit {
   logAction(time: number, action: string) {
     console.log('User Action: ' + action + ' time:' + time + 's');
     this.logList.push({ action: action, time: time });
+  }
+
+  downloadLog(){
+    let link = document.createElement("a");
+    link.download = "filename";
+    let text = 'LogFile';
+    for (const log of this.logList) {
+      text = text.concat('\n' + 'User Action: ' + log.action + ' time:' + log.time + 's;')
+    }
+    link.href = this.loggingService.makeTextFile(text);
+    link.click();
+    link.remove();
   }
 }
 
