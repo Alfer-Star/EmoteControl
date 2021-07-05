@@ -36,6 +36,8 @@ export class MoviePage implements OnInit, AfterViewInit {
   subActive = false;
   descSubActive = false;
 
+  logList: LogClass[];
+
   videoIsBlanked = false;
 
   volume = 1;
@@ -79,20 +81,28 @@ export class MoviePage implements OnInit, AfterViewInit {
     this.fullControl = !this.control.fullControl;
     this.mediumControl = !this.control.mediumControl;
     this.changeReductionControl(this.scareReduxIndex);
+
+    this.logList = new Array<LogClass>();
   }
 
   ngAfterViewInit(): void {
     // EventListener
     this.myVideo.nativeElement.addEventListener(
       'pause',
-      () => (this.videoPaused = !this.videoPaused)
-    );
-    this.myVideo.nativeElement.addEventListener(
-      'play',
-      () => (this.videoPaused = !this.videoPaused)
-    );
+      () => {
+        this.logAction(this.myVideo.nativeElement.currentTime, 'User presses Pause');
+        this.videoPaused = !this.videoPaused;
+      });
+    this.myVideo.nativeElement.addEventListener('play', () => {
+      this.logAction(this.myVideo.nativeElement.currentTime, 'User presses Play');
+      this.videoPaused = !this.videoPaused;
+    });
     this.myVideo.nativeElement.addEventListener('volumechange', () => {
       this.volume = this.myVideo.nativeElement.volume;
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User changes Volume: ' + this.myVideo.nativeElement.volume
+      );
     });
     this.myVideo.nativeElement.addEventListener('timeupdate', () => {
       // Show Congrats Modal on Abspan
@@ -114,9 +124,14 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
 
   playVideo() {
+    this.logAction(this.myVideo.nativeElement.currentTime, 'User presses Play');
     this.myVideo.nativeElement.play();
   }
   stopVideo() {
+    this.logAction(
+      this.myVideo.nativeElement.currentTime,
+      'User presses Pause'
+    );
     this.myVideo.nativeElement.pause();
   }
 
@@ -124,10 +139,22 @@ export class MoviePage implements OnInit, AfterViewInit {
     const newVolume = this.myVideo.nativeElement.volume + 0.1 * multiplikator;
     if (newVolume >= 1) {
       this.myVideo.nativeElement.volume = 1;
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User deactivates Video Mute'
+      );
     } else if (newVolume <= 0) {
       this.myVideo.nativeElement.volume = 0;
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User Mutes Video'
+      );
     } else {
       this.myVideo.nativeElement.volume = newVolume;
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User Changes Video Volume to: ' + newVolume
+      );
     }
     this.volume = this.myVideo.nativeElement.volume;
   }
@@ -135,25 +162,67 @@ export class MoviePage implements OnInit, AfterViewInit {
   lowVolumeMode() {
     if ((this.myVideo.nativeElement.volume > 0, 2)) {
       this.myVideo.nativeElement.volume = 0.1;
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User goes Low Volume Mode'
+      );
     } else {
       this.changeVolume(10);
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User leaves Low Volume Mode'
+      );
     }
   }
 
   blankVideo() {
+    if (this.videoIsBlanked) {
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User leaves Blank Mode'
+      );
+    } else {
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User enters Blank  Mode'
+      );
+    }
     this.videoIsBlanked = !this.videoIsBlanked;
     this.descSubActive = !this.descSubActive;
   }
 
   muteVideo() {
+    if (this.myVideo.nativeElement.muted) {
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User leaves Mute Mode'
+      );
+    } else {
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User enters Mute  Mode'
+      );
+    }
     this.myVideo.nativeElement.muted = !this.myVideo.nativeElement.muted;
   }
 
   showSubtitles() {
+    if (this.myVideo.nativeElement.subActive) {
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User deactivates Sub'
+      );
+    } else {
+      this.logAction(
+        this.myVideo.nativeElement.currentTime,
+        'User activates Sub'
+      );
+    }
     this.subActive = !this.subActive;
   }
 
   skipScene() {
+    this.logAction(this.myVideo.nativeElement.currentTime, 'User Skips Scene');
     if (this.myVideo.nativeElement.currentTime < this.skips[0]) {
       this.myVideo.nativeElement.currentTime = this.skips[0];
     } else if (this.myVideo.nativeElement.currentTime < this.skips[1]) {
@@ -167,6 +236,10 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
 
   async presentModal() {
+    this.logAction(
+      this.myVideo.nativeElement.currentTime,
+      'User Sees Congratulation'
+    );
     const modal = await this.modalController.create({
       component: CongratModalComponent,
       cssClass: 'my-custom-class',
@@ -176,6 +249,7 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
 
   scareReductioDown() {
+    this.logAction(this.myVideo.nativeElement.currentTime, 'SRS switched down');
     this.scareReduxIndex -= 1;
     this.changeReductionControl(this.scareReduxIndex);
   }
@@ -183,6 +257,7 @@ export class MoviePage implements OnInit, AfterViewInit {
   scareReductioUp() {
     this.scareReduxIndex += 1;
     this.changeReductionControl(this.scareReduxIndex);
+    this.logAction(this.myVideo.nativeElement.currentTime, 'SRS switched Up');
   }
   changeReductionControl(index: number) {
     this.scareReduxDown = this.scareReduxListDown[index];
@@ -216,4 +291,14 @@ export class MoviePage implements OnInit, AfterViewInit {
         break;
     }
   }
+
+  logAction(time: number, action: string) {
+    console.log('User Action: ' + action + ' time:' + time + 's');
+    this.logList.push({ action: action, time: time });
+  }
+}
+
+interface LogClass {
+  action: string;
+  time: number;
 }
