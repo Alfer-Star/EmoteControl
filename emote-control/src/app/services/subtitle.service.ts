@@ -48,108 +48,170 @@ export class SubtitleService {
   protected initSubs() {
     this.subs = new Array<Subtitle>();
 
-    this.subs.push({ begin: 0, end: 4, value: '' });
-    this.subs.push({ begin: 4, end: 10, value: 'Regen' });
-    this.subs.push({ begin: 10, end: 17, value: '' });
-    this.subs.push({
-      begin: 17,
-      end: 34,
-      value: 'Lichtschalter klickt',
+     this.subs.push({
+      begin: 0,
+      end: 6 ,
+      value: 'die Lampe summt',
     });
-    this.subs.push({
-      begin: 34,
-      end: 37,
-      value: 'erschrickt hörbar',
+ this.subs.push({
+      begin: 6,
+      end:  23 ,
+      value: 'spannende Musik',
     });
-    this.subs.push({
-      begin: 37,
-      end: 40,
+ this.subs.push({
+      begin: 23,
+      end: 47,
+      value: ' es läuft Musik aus dem Spiel',
+    });
+ this.subs.push({
+      begin: 48,
+      end: 49,
+      value: ' ein Klopfen',
+    });
+ this.subs.push({
+      begin: 49 ,
+      end: 50 ,
       value: '',
     });
-    this.subs.push({
-      begin: 40,
-      end: 49,
-      value: 'Klebeband knarzt',
+ this.subs.push({
+      begin: 50 ,
+      end: 58 ,
+      value: 'es läuft Musik aus dem Spiel',
     });
-    this.subs.push({
-      begin: 49,
-      end: 58,
-      value: 'Laken rascheln',
+ this.subs.push({
+      begin: 58 ,
+      end: 59 ,
+      value: 'Ein Klopfen',
     });
-    this.subs.push({
-      begin: 58,
-      end: 64,
-      value: 'leise Geräusche',
+ this.subs.push({
+      begin: 59,
+      end:  71 ,
+      value: 'spannende Musik',
     });
-    this.subs.push({
-      begin: 64,
-      end: 72,
-      value: 'Dielen knarzen',
+ this.subs.push({
+      begin: 71 ,
+      end: 72 ,
+      value: 'spannende Musik. Das Bett knarzt',
     });
-    this.subs.push({
-      begin: 72,
-      end: 74,
-      value: 'ängstliches Wimmern',
+ this.subs.push({
+      begin: 72 ,
+      end: 82 ,
+      value: 'spannende Musik',
     });
-    this.subs.push({
-      begin: 74,
-      end: 76,
+ this.subs.push({
+      begin: 82 ,
+      end: 85,
+      value: ' es läuft Musik aus dem Spiel',
+    });
+ this.subs.push({
+      begin: 85 ,
+      end: 87,
+	  value: '',
+    });
+ this.subs.push({
+      begin: 87 ,
+      end: 89 ,
+      value: 'das Geräusch einer sich öffnenen Schublade',
+    });
+ this.subs.push({
+      begin: 89 ,
+      end: 92,
+	  value: '',
+    });
+ this.subs.push({
+      begin: 92,
+      end: 93 ,
+      value: 'das Geräusch einer sich schließenden Schublade',
+    });
+ this.subs.push({
+      begin: 93 ,
+      end: 112 ,
+      value: 'es läuft leise Musik aus dem Spiel',
+    });
+ this.subs.push({
+      begin: 112 ,
+      end: 113 ,
+      value: 'leichtes lachen',
+    });
+ this.subs.push({
+      begin: 113 ,
+      end: 125 ,
+      value: 'es läuft leise Musik aus dem Spiel',
+    });
+ this.subs.push({
+      begin: 125 ,
+      end: 146,
+      value: ' bedrohliche Musik',
+    });
+ this.subs.push({
+      begin: 146 ,
+      end: 149 ,
+      value: 'bedrohliches Lachen',
+    });
+ this.subs.push({
+      begin: 149 ,
+      end: 158 ,
+      value: 'Knarzende Dielenbretter ',
+    });
+ this.subs.push({
+      begin: 158 ,
+      end: 161,
+      value: '',
+    });
+ this.subs.push({
+      begin: 161 ,
+      end: 162 ,
+      value: 'Klicken',
+    });
+ this.subs.push({
+      begin: 162 ,
+      end: 167 ,
+      value: ' bedrohliche Musik',
+    });
+ this.subs.push({
+      begin: 167 ,
+      end: 172 ,
+      value: 'das Geräusch einer sich öffnenden und schließenden Schublade',
+    });
+ this.subs.push({
+      begin: 172 ,
+      end: 174 ,
+      value: 'bedrohliches Lachen',
+    });
+ this.subs.push({
+      begin: 174 ,
+      end: 182 ,
+      value: 'bedrohliche Musik',
+    });
+ this.subs.push({
+      begin: 182 ,
+      end: 184 ,
+      value: 'das Geräusch einer sich öffnenden und schließenden Schublade',
+    });
+ this.subs.push({
+      begin: 184 ,
+      end: 185 ,
+      value: 'Klack',
+    });
+ this.subs.push({
+      begin: 185 ,
+      end:  189 ,
+      value: 'bedrohliche Musik',
+    });
+ this.subs.push({
+      begin: 189 ,
+      end: 191 ,
+      value: 'Knarzen',
+    });
+ this.subs.push({
+      begin: 192 ,
+      end: 192 ,
       value: 'Klick',
     });
-    this.subs.push({
-      begin: 76,
-      end: 80,
-      value: 'schnelle tappende Schritte',
-    });
-    this.subs.push({
-      begin: 80,
-      end: 94,
-      value: 'schnelle tappende Schritte verstummen',
-    });
-    this.subs.push({
-      begin: 90,
-      end: 94,
-      value: '',
-    });
-    this.subs.push({
-      begin: 94,
-      end: 100,
-      value: 'Wimmern',
-    });
-    this.subs.push({
-      begin: 100,
-      end: 125,
-      value: 'Lampe summt',
-    });
-    this.subs.push({
-      begin: 125,
-      end: 130,
-      value: 'Stecker klackt',
-    });
-    this.subs.push({
-      begin: 130,
-      end: 140,
-      value: 'Lichtschalter klicken',
-    });
-    this.subs.push({
-      begin: 140,
-      end: 148,
-      value: '',
-    });
-    this.subs.push({
-      begin: 148,
-      end: 149,
-      value: 'leises Fauchen',
-    });
-    this.subs.push({
-      begin: 149,
-      end: 152,
-      value: 'klick',
-    });
-    this.subs.push({
-      begin: 152,
-      end: 161,
-      value: 'Abspann',
+ this.subs.push({
+      begin: 192 ,
+      end: 210 ,
+      value: 'bedrohliche Musik',
     });
   }
 }
