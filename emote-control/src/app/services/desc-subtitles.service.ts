@@ -243,7 +243,107 @@ export class DescSubtitlesService extends SubtitleService {
       end: 210 ,
       value: 'Die Switch liegt umgedreht auf dem Bett',
     });
-
+// Philipp
+this.subs.push({
+  begin: 210,
+  end: 225,
+  value: 'Die Frau hebt die switch auf und schaut in das Spiel',
+});
+this.subs.push({
+  begin: 225,
+  end: 232,
+  value: 'Die Frau schaut von der Switch auf',
+});
+this.subs.push({
+  begin: 232,
+  end: 239,
+  value: '(Im Spiel) ZoZo fragt: "Lässt du mich rein?"',
+});
+this.subs.push({
+  begin: 339,
+  end: 348,
+  value: 'Die Frau schaut von der Switch auf und die Tür bewegt sich',
+});
+this.subs.push({
+  begin: 250,
+  end: 259,
+  value: '(Im Spiel) Sie beantwortet die Frage mit nein',
+});
+this.subs.push({
+  begin: 259,
+  end: 262,
+  value: '(Im Spiel) am Türrahmen erscheint eine Hand',
+});
+this.subs.push({
+  begin: 262,
+  end: 271,
+  value: 'Die Tür schlägt auf und die Frau weicht nach hinten',
+});
+this.subs.push({
+  begin: 271,
+  end: 275,
+  value: 'Die Bettdecke bewegt sich',
+});
+this.subs.push({
+  begin: 275,
+  end: 293,
+  value: 'Die Frau klettert rückwärts vom Bett herunter und versteckt sich dahinter',
+});
+this.subs.push({
+  begin: 293,
+  end: 295,
+  value: 'Die Frau schuat wieder auf die switch',
+});
+this.subs.push({
+  begin: 295,
+  end: 300,
+  value: '(Im Spiel) ZoZo sagt: "Nicht blinzeln, ich bin schüchtern."',
+});
+this.subs.push({
+  begin: 300,
+  end: 305,
+  value: 'Die Frau schaut nach oben',
+});
+this.subs.push({
+  begin: 305,
+  end: 312,
+  value: 'Auf dem Bett sitzt etwas mit dem Kopf unter der Decke',
+});
+this.subs.push({
+  begin: 312,
+  end: 314,
+  value: '(Im Spiel) ZoZo fragt: "Lässt du mich raus?"',
+});
+this.subs.push({
+  begin: 314,
+  end: 317,
+  value: 'Das Licht geht aus und die Decke kommt auf die Frau zu',
+});
+this.subs.push({
+  begin: 317,
+  end: 320,
+  value: 'Das Licht geht wieder an',
+});
+this.subs.push({
+  begin: 320,
+  end: 355,
+  value: 'Das Bett ist wieder leer',
+});
+this.subs.push({
+  begin: 355,
+  end: 373,
+  value: 'Die Frau schaltet im Spiel das Licht aus, in der Realität bleibt es aber an',
+});
+this.subs.push({
+  begin: 373,
+  end: 377,
+  value: 'Das Monster sitzt auf dem Bett und stürzt auf die Frau',
+});
+this.subs.push({
+  begin: 377,
+  end: 392,
+  value: 'Abspann',
+});
     
   }
 }

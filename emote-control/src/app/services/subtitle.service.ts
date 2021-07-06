@@ -213,7 +213,125 @@ export class SubtitleService {
       end: 210 ,
       value: 'bedrohliche Musik',
     });
+    // Philipp
+    this.subs.push({
+      begin: 210,
+      end: 226,
+      value: '',
+    });
+    this.subs.push({
+      begin: 226,
+      end: 232,
+      value: 'Fußboden knarzt',
+    });
+    this.subs.push({
+      begin: 232,
+      end: 239,
+      value: 'Notification Sound',
+    });
+    this.subs.push({
+      begin: 339,
+      end: 348,
+      value: 'Tür knarzt',
+    });
+    this.subs.push({
+      begin: 248,
+      end: 259,
+      value: '',
+    });
+    this.subs.push({
+      begin: 259,
+      end: 270,
+      value: 'aufschlagende Tür und lautes Atmen',
+    });
+    this.subs.push({
+      begin: 270,
+      end: 276,
+      value: 'Fußboden knarzt  und lautes Atmen',
+    });
+    this.subs.push({
+      begin: 276,
+      end: 282,
+      value: 'quitschendes Bett  und lautes Atmen',
+    });
+    this.subs.push({
+      begin: 282,
+      end: 288,
+      value: 'lautes Atmen',
+    });
+    this.subs.push({
+      begin: 288,
+      end: 299,
+      value: '',
+    });
+    this.subs.push({
+      begin: 299,
+      end: 310,
+      value: 'Tür knarzt',
+    });
+    this.subs.push({
+      begin: 310,
+      end: 314,
+      value: 'klicken der Lampe',
+    });
+    this.subs.push({
+      begin: 314,
+      end: 317,
+      value: 'schreien des Monsters',
+    });
+    this.subs.push({
+      begin: 317,
+      end: 320,
+      value: 'Notification Sound',
+    });
+    this.subs.push({
+      begin: 320,
+      end: 359,
+      value: '',
+    });
+    this.subs.push({
+      begin: 359,
+      end: 363,
+      value: 'klicken',
+    });
+    this.subs.push({
+      begin: 363,
+      end: 375,
+      value: 'Atmen',
+    });
+    this.subs.push({
+      begin: 375,
+      end: 377,
+      value: 'schreien des Monsters',
+    });
+    this.subs.push({
+      begin: 377,
+      end: 390,
+      value: 'bedrohliche Musik',
+    });
+    this.subs.push({
+      begin: 390,
+      end: 393,
+      value: 'poltern',
+    });
+    this.subs.push({
+      begin: 393,
+      end: 401,
+      value: 'Countdown sound',
+    });
+    this.subs.push({
+      begin: 401,
+      end: 404,
+      value: 'leises Lachen',
+    });
+    this.subs.push({
+      begin: 404,
+      end: 406,
+      value: 'Countdown sound',
+    });
+
   }
+  
 }
 
 export interface Subtitle {
