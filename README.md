@@ -1,5 +1,7 @@
 # EmoteControl
 
+Dieser Prototyp wurde im Rahmen der Gastvorlesung UX Design der Universität Paderborn erstellt. 
+
 #To run Ionic Project
 1. Install node.js: https://nodejs.org/en/download/
 2. Test node is installed, by testing in console node --version and npm -- version
