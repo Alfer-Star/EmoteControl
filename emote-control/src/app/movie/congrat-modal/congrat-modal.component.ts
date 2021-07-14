@@ -1,3 +1,4 @@
+import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CongratModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected modal: ModalController) { }
 
   ngOnInit(): void {
   }
+
+close(){
+  this.modal.dismiss();
+}
 
 }
